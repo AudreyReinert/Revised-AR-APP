@@ -59,12 +59,12 @@
 
           <a-entity
             id="ChargePath"
-            line="start: 0, 0, 0; end: 2 0 0; color: red"
-            line__1="start: 2, 0, 0; end: 2 4 0; color: black"
-            line__2="start: 2, 4, 0; end: -2 4 0; color: black"
-            line__3="start: -2, 4, 0; end: -2 3 0; color: black"
-            line__4="start: -2, 2, 0; end: 2 0 0; color: black"
-            line__5="start: -2, , 0; end: 0 0 0; color: black"
+            line="start: 0, 0, 0; end: -2 0 0; color: red"
+            line__1="start: -2, 0, 0; end: -2 0 2; color: green"
+            line__2="start: -2, 0, 2; end: 0.5 0 2; color: green"
+            line__3="start: .5, 0, 2; end: 2 0 2; color: green"
+            line__4="start: 2, 0, 2; end: 2 0 0; color:green"
+            line__5="start: 2, 0, 0; end: 0 0 0; color:green"
                  >
                 </a-entity>
                 <a-entity
@@ -73,11 +73,31 @@
                       material="color:yellow"
                       potision="0 0 0"
                       light="type: ambient; color: #CCC"
-                      animation="property: position; to: 2 0 0; loop: true; dur: 500"
+                      animation="property: position; to: -2 0 0; loop: true; dur: 500"
+
                        >
                       </a-entity>
+
+                      <a-entity
+                          id="charge_2"
+                            geometry="primitive: sphere; radius: .1"
+                            material="color:yellow"
+                            potision="-2 0 0"
+                            light="type: ambient; color: #CCC"
+                            animation="property: position; from:-2 0 0 ;to: -2 0 2; loop: true; delay: 500; dur: 500"
+                             >
+                            </a-entity>
+                            <a-entity
+                                id="charge_3"
+                                  geometry="primitive: sphere; radius: .1"
+                                  material="color:yellow"
+                                  potision="-2 0 2"
+                                  light="type: ambient; color: #CCC"
+                                  animation="property: position;from: -2 0 2;  to: 0.5 0 2; loop: true; delay :1000;dur: 500"
+                                   >
+                                  </a-entity>
     </a-marker>
-    <a-marker type='barcode' value='0'>
+    <a-marker type='barcode' value='9'>
 
         <a-entity
             id="Component"
@@ -98,6 +118,7 @@
                           potision="0 0 0"
                           light="type: ambient; color: #CCC"
                           animation="property: position; to: 0   0; loop: true; dur: 500"
+
                            >
                           </a-entity>
         </a-marker>
