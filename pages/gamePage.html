@@ -39,19 +39,71 @@
               <a href="mainMenu.html">Exit to main menu</a>
 
             </div>
- <div class="mypanel"></div>
 
-                <script>
-                $.getJSON('levels/level1.json', function(data) {
+                <a-scene embedded
+                  arjs='size : 5 ;sourceType: webcam; debugUIEnabled: false; detectionMode: color_and_matrix; matrixCodeType: 6x6;patternRatio: 0.5'>
+                  <!-- arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; detectionMode: mono_and_matrix; matrixCodeType: 3x3_HAMMING63;'> -->
 
-                    var text = `Date: ${data.date}<br>
-                                Time: ${data.time}<br>
-                                Unix time: ${data.milliseconds_since_epoch}`
+<a-marker type='barcode' value='5'>
+
+    <a-entity
+        id="Battery"
+          geometry="primitive: box;scale: .5 .5 .5"
+          material="color:black"
+          potision="0 0 0"
+          light="type: ambient; color: #CCC"
 
 
-                    $(".mypanel").html(text);
-                });
-                </script>
+           >
+          </a-entity>
 
+          <a-entity
+            id="ChargePath"
+            line="start: 0, 0, 0; end: 2 0 0; color: red"
+            line__1="start: 2, 0, 0; end: 2 4 0; color: black"
+            line__2="start: 2, 4, 0; end: -2 4 0; color: black"
+            line__3="start: -2, 4, 0; end: -2 3 0; color: black"
+            line__4="start: -2, 2, 0; end: 2 0 0; color: black"
+            line__5="start: -2, , 0; end: 0 0 0; color: black"
+                 >
+                </a-entity>
+                <a-entity
+                    id="charge_1"
+                      geometry="primitive: sphere; radius: .1"
+                      material="color:yellow"
+                      potision="0 0 0"
+                      light="type: ambient; color: #CCC"
+                      animation="property: position; to: 2 0 0; loop: true; dur: 500"
+                       >
+                      </a-entity>
+    </a-marker>
+    <a-marker type='barcode' value='0'>
+
+        <a-entity
+            id="Component"
+              geometry="primitive: box;scale: .5 .5 .5"
+              material="color:black"
+              potision="0 0 0"
+              light="type: ambient; color: #CCC"
+
+
+               >
+              </a-entity>
+
+
+                    <a-entity
+                        id="charge_2"
+                          geometry="primitive: sphere; radius: .1"
+                          material="color:yellow"
+                          potision="0 0 0"
+                          light="type: ambient; color: #CCC"
+                          animation="property: position; to: 0   0; loop: true; dur: 500"
+                           >
+                          </a-entity>
+        </a-marker>
+
+
+      <a-entity camera></a-entity>
+</a-scene>
 
       </body>
